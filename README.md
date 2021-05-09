@@ -47,7 +47,14 @@ For the frontend, I used [material-ui](https://material-ui.com/) as and [nivo](h
 
 ### Testing
 
-The backend service didn't include a huge amount of logic. So I limited testing with
+The backend service didn't include a huge amount of logic. So I limited testing to:
+
+* A couple of tests that were more integration tests, in that they tested the endpoint, all the way through to querying
+  the DB provided
+* Some supporting unit tests that tested some specific logic (e.g. calculating standard deviation for volatility)
+
+Note: I could have invested more in the testing here, but decided to pause with what I had in order to pivot to
+replacing the C# backend with a Node/TypeScript one.
 
 ### Things I guessed/changed/left-out/do-if-I-had-more-time
 
@@ -78,4 +85,3 @@ sorted by the “volatility” metric.
 
 If I had more time, I would have added a “volatility” column along with a chart showing the volatility and then sorted
 by that, much like I’ve done for the “Score” column.
-
