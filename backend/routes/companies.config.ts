@@ -1,5 +1,7 @@
-import {CommonRoutesConfig} from '../common/common.routes.config';
 import express from 'express';
+import {CommonRoutesConfig} from '../common/common.routes.config';
+
+import CompaniesController from '../controllers/companies';
 
 export class CompaniesRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
@@ -8,9 +10,7 @@ export class CompaniesRoutes extends CommonRoutesConfig {
 
     configureRoutes() {
         this.app.route('/companies')
-            .get((req: express.Request, resp: express.Response) => {
-                resp.status(200).send('List of companies')
-            });
+            .get(CompaniesController.listCompanies);
 
         return this.app;
     }
