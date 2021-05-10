@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import CompaniesList from "./CompaniesList";
-import {Company} from "../Dtos/Company";
+import {CompanyDto} from "../../../common/dtos/CompanyDto";
 import CompaniesSearch from "./CompaniesSearch";
 
-const getExchanges = (companies: Company[]): string[] => {
+const getExchanges = (companies: CompanyDto[]): string[] => {
     return companies.map(x => x.exchangeSymbol)
         .filter((value, index, self) => self.indexOf(value) === index)
 }
@@ -14,7 +14,7 @@ export const NUM_OF_SCORE_AXIS = 5
 export const MAX_OVERALL_SCORE = MIX_INDIVIDUAL_SCORE * NUM_OF_SCORE_AXIS
 
 const Companies: React.FunctionComponent = () => {
-    const [companies, setCompanies] = useState<Company[]>([]);
+    const [companies, setCompanies] = useState<CompanyDto[]>([]);
     const [allExchanges, setAllExchanges] = useState<string[]>([]);
     const [filteredExchanges, setFilteredExchanges] = useState<string[]>([]);
     const [minOverallScore, setMinOverallScore] = useState<number>(MIN_OVERALL_SCORE);
@@ -34,7 +34,7 @@ const Companies: React.FunctionComponent = () => {
         getMyData();
     }, [])
 
-    const filterCompanies = (): Company[] => {
+    const filterCompanies = (): CompanyDto[] => {
         const withinOverallScoreRange = (value: number): boolean => minOverallScore <= value && value <= maxOverallScore;
 
         return companies

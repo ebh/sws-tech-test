@@ -1,10 +1,10 @@
 import React from "react";
 import {ResponsiveRadar} from "@nivo/radar"
 import {Box} from "@material-ui/core";
-import {Company} from "../Dtos/Company";
+import {CompanyDto} from "../../../common/dtos/CompanyDto";
 
 interface SnowflakeProps {
-    company: Company
+    company: CompanyDto
 }
 
 const Snowflake: React.FunctionComponent<SnowflakeProps> = (props) => {

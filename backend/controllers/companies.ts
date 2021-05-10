@@ -1,5 +1,6 @@
 import express from 'express';
-import {CompanyDto} from '../dtos/Company.dto';
+// @ts-ignore
+import {CompanyDto} from "../../common/dtos/CompanyDto";
 import companiesService from '../services/companies.service'
 
 export class CompaniesController {

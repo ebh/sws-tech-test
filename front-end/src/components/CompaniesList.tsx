@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel} from "@material-ui/core";
 import Snowflake from "./Snowflake";
-import {Company} from "../Dtos/Company";
+import {CompanyDto} from "../../../common/dtos/CompanyDto";
 import Price from "./Price";
 
 interface CompaniesListProps {
-    companies: Company[]
+    companies: CompanyDto[]
 }
 
 type Order = "asc" | "desc";
@@ -13,12 +13,12 @@ type Order = "asc" | "desc";
 interface EnhancedTableProps {
     order: Order
     orderBy: string
-    onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Company) => void
+    onRequestSort: (event: React.MouseEvent<unknown>, property: keyof CompanyDto) => void
 }
 
 function CompaniesListHeader(props: EnhancedTableProps) {
 
-    const createSortHandler = (property: keyof Company) => (event: React.MouseEvent<unknown>) => {
+    const createSortHandler = (property: keyof CompanyDto) => (event: React.MouseEvent<unknown>) => {
         props.onRequestSort(event, property);
     }
 
@@ -102,15 +102,15 @@ function stableSort<T>(array: T[], comparator: (a: T, b: T) => number) {
 
 const CompaniesList: React.FunctionComponent<CompaniesListProps> = (props) => {
     const [order, setOrder] = useState<Order>('asc');
-    const [orderBy, setOrderBy] = useState<keyof Company>('totalScore');
+    const [orderBy, setOrderBy] = useState<keyof CompanyDto>('totalScore');
 
-    const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Company) => {
+    const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof CompanyDto) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
         setOrderBy(property);
     }
 
-    const displayCompany = (company: Company) => {
+    const displayCompany = (company: CompanyDto) => {
         return (
             <TableRow>
                 <TableCell>{company.name}</TableCell>

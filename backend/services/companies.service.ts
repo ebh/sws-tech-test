@@ -1,4 +1,4 @@
-import {CompanyDto} from '../dtos/Company.dto'
+import {CompanyDto} from '../../common/dtos/company'
 import CompaniesDao, {CompanyRow, PriceRow} from '../daos/companies.dao'
 import {std} from 'mathjs';
 
