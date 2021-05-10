@@ -1,40 +1,39 @@
 # sws-tech-test
 
-This is my response to the technical test. The specification of the test are not public and are pretty specific to the
+This is my 2nd response to a technical test. The first used C# .Net Core for the backend, that has been replaced with a Node/Express/Typescript backend.
+ 
+The specification of the test are not public and are pretty specific to the
 organisation. So I've decided not to reproduce them here.
 
 ## Running on your local machine
 
 ### Requirements
 
-* .Net Core 5 ([download](https://dotnet.microsoft.com/download))
+* `yarn` ([Installation MacOS](https://classic.yarnpkg.com/en/docs/install/#mac-stable))
 
 ### Process (MacOS)
 
 * Clone repo to your local machine
-* Run the following in the root of your local working copy of the git repo
-
+* Run the following in the root of your local working copy of the git repo:
 ```
-cd App
-dotnet restore
-dotnet run
+cd backend && yarn install && yarn start
 ```
 
-Note: This will take some time the first time as it will do a `npm install` for the React front-end. It does not provide
-any feedback while this is done so it looks like it has hung.
+When done, it should look like this:
+![backend start success](docs/imgs/backend_start_success.png "backend start success")
 
-When done you should see something like this:
-!![dotnet run success](docs/imgs/dotnet_run_success.png "dotnet run success")
+In a second terminal window run, also at the root of your local working copy:
+```
+cd front-end && yarn install && yarn start
+```
 
-In your browser,, go to [http://localhost:5000](http://localhost:5000)
-
-To query the backend service directly browse to:
-
-* [https://localhost:5001/Companies](https://localhost:5001/Companies)
-* [https://localhost:5001/Companies?includePrices=false](https://localhost:5001/Companies?includePrices=false)
-* [https://localhost:5001/Companies?includePrices=true](https://localhost:5001/Companies?includePrices=true)
+![front-end start success](docs/imgs/front-end_start_success.png "backend start success")
 
 ## Description of Solution
+
+### Overview
+
+TODO - Update this 
 
 The solution consists of a .Net Core backend service that exposes the `/companies` endpoint which returns a list of
 companies (with or without prices). It also serves a React/Typescript frontend.
@@ -78,4 +77,3 @@ sorted by the “volatility” metric.
 
 If I had more time, I would have added a “volatility” column along with a chart showing the volatility and then sorted
 by that, much like I’ve done for the “Score” column.
-
