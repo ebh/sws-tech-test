@@ -1,6 +1,6 @@
 import express from 'express';
-import {CommonRoutesConfig} from '../common/common.routes.config';
 
+import {CommonRoutesConfig} from '../common/common.routes.config';
 import CompaniesController from '../controllers/companies';
 
 export class CompaniesRoutes extends CommonRoutesConfig {

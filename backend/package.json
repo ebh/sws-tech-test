@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "@databases/sqlite": "^3.0.0",
+    "@types/cors": "^2.8.10",
     "@types/mathjs": "^6.0.12",
     "@types/sqlite3": "^3.1.7",
     "@types/uuid": "^8.3.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.95.4",
     "mathjs": "^9.3.2",
