@@ -1,6 +1,8 @@
 # sws-tech-test
 
 This is my 2nd response to a technical test. The first used C# .Net Core for the backend, that has been replaced with a Node/Express/Typescript backend.
+
+Note: The C# .Net solution can still be found [here](https://github.com/ebh/sws-tech-test/tree/main).
  
 The specification of the test are not public and are pretty specific to the
 organisation. So I've decided not to reproduce them here.
@@ -33,7 +35,30 @@ cd front-end && yarn install && yarn start
 
 ### Overview
 
-TODO - Update this 
+The solution consists of 3 parts:
+
+* A Node/Express/TypeScript backend (under `backend/`)
+* A React/TypeScript front-end (under `front-end/`)
+* Code the is common to both the backend and front-end (under `common/`)
+ 
+### Backend
+
+Even though the service only has one endpoint, with a single method it's written with the view to extensibility regarding routes.
+
+#### Routes
+
+There is an abstract class `common/common.routes.config.ts` where we can place configuration that is desired for all routes.
+
+The single route of the service is defined under `routes/` and loaded manually  
+
+
+ 
+
+### Front-end
+
+### Common
+
+A single DTO, used for communicating between the backend and the front-end.
 
 The solution consists of a .Net Core backend service that exposes the `/companies` endpoint which returns a list of
 companies (with or without prices). It also serves a React/Typescript frontend.
@@ -46,7 +71,7 @@ For the frontend, I used [material-ui](https://material-ui.com/) as and [nivo](h
 
 ### Testing
 
-The backend service didn't include a huge amount of logic. So I limited testing with
+Currently, there are no tests as I've not yet progressed that far with my TypeScript learning.
 
 ### Things I guessed/changed/left-out/do-if-I-had-more-time
 
