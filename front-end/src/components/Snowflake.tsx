@@ -30,30 +30,30 @@ const Snowflake: React.FunctionComponent<SnowflakeProps> = (props) => {
             "score": props.company.dividendScore,
         },
     ]
-    
+
     return (
-       <Box height={40} width={40}>
-           <ResponsiveRadar
-               data={data}
-               keys={[ 'score' ]}
-               indexBy="axis"
-               maxValue={6}
-               curve="linearClosed"
-               borderWidth={2}
-               borderColor={{ from: 'color' }}
-               gridLevels={1}
-               gridShape="circular"
-               gridLabelOffset={36}
-               enableDots={true}
-               dotSize={0}
-               colors={{ scheme: 'nivo' }}
-               fillOpacity={0.25}
-               blendMode="multiply"
-               animate={false}
-               isInteractive={false}
-           />
-       </Box>
-   );
+        <Box height={40} width={40}>
+            <ResponsiveRadar
+                data={data}
+                keys={['score']}
+                indexBy="axis"
+                maxValue={6}
+                curve="linearClosed"
+                borderWidth={2}
+                borderColor={{from: 'color'}}
+                gridLevels={1}
+                gridShape="circular"
+                gridLabelOffset={36}
+                enableDots={true}
+                dotSize={0}
+                colors={{scheme: 'nivo'}}
+                fillOpacity={0.25}
+                blendMode="multiply"
+                animate={false}
+                isInteractive={false}
+            />
+        </Box>
+    );
 }
 
 export default Snowflake;

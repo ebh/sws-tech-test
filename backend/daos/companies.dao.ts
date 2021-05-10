@@ -23,7 +23,6 @@ export interface CompanyRow {
     total: number
 }
 
-
 export interface PriceRow {
     company_id: string
     date: string
@@ -77,11 +76,11 @@ class CompaniesDao {
             FROM swsCompanyPriceClose
             WHERE company_id = ${id};`;
 
-            for await (const record of this.db.queryStream(stmt)) {
-                result.push(record);
-            }
+        for await (const record of this.db.queryStream(stmt)) {
+            result.push(record);
+        }
 
-            return result;
+        return result;
     }
 }
 

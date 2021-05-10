@@ -1,5 +1,5 @@
 import express from 'express';
-import { CompanyDto } from '../dtos/Company.dto';
+import {CompanyDto} from '../dtos/Company.dto';
 import companiesService from '../services/companies.service'
 
 export class CompaniesController {
@@ -8,8 +8,7 @@ export class CompaniesController {
 
         if (CompaniesController.includePrice(req)) {
             companies = await companiesService.listWithPrice();
-        }
-        else {
+        } else {
             companies = await companiesService.listWithoutPrice();
         }
         resp.status(200).send(companies);

@@ -25,12 +25,10 @@ const Companies: React.FunctionComponent = () => {
             const resp = await fetch('http://localhost:8000/Companies?includePrices=true'); // TODO - Remove hardcoded domain
             const body = await resp.json()
 
-
             setCompanies(body);
 
             setAllExchanges(getExchanges(body));
             setFilteredExchanges(getExchanges(body));
-
         }
 
         getMyData();
