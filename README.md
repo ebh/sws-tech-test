@@ -3,6 +3,8 @@
 This is my response to the technical test. The specification of the test are not public and are pretty specific to the
 organisation. So I've decided not to reproduce them here.
 
+Note: I've also published a version with a Node/Express/TypeScript backend, which can be found [here](https://github.com/ebh/sws-tech-test/tree/node-express).
+
 ## Running on your local machine
 
 ### Requirements
