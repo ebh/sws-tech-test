@@ -45,38 +45,52 @@ The solution consists of 3 parts:
 
 Even though the service only has one endpoint, with a single method it's written with the view to extensibility regarding routes.
 
-#### Routes
+#### Route
 
 There is an abstract class `common/common.routes.config.ts` where we can place configuration that is desired for all routes.
 
-The single route of the service is defined under `routes/` and loaded manually  
+The single route of the service is defined under `routes/` and loaded manually in `index.ts`.
 
+### Controller
 
- 
+The single controller, `controllers/companies.ts` handles the 2 use cases:
+* Don't include calculating price and volatility
+* Do calculate price and volatility
+
+### Service
+
+The service handles the above 2 use cases.
+
+I put the business logic here that I would normally put in a domain model. The main reason I placed it
+here was because of the time it would have taken to get an ORM working (see below).  
+
+### Data Access Layer (DAO) / Repository
+
+This is where I had the most difficulty adapting to Node/Typescript. For the most part in C# .Net & Golang
+has been using DynamoDB & S3. So even though I have a strong background in SQL development I'm less familiar
+with ORMs. Combine that with not be able to find a lot of great database-first examples I think my solution
+is a bit rough here.
+
+I used [@databases/sqlite](https://www.npmjs.com/package/@databases/sqlite) for the simple reason it had
+examples closest to my specific use case.    
 
 ### Front-end
 
+For the frontend, I used [material-ui](https://material-ui.com/) as and [nivo](https://nivo.rocks/).
+
 ### Common
 
-A single DTO, used for communicating between the backend and the front-end.
-
-The solution consists of a .Net Core backend service that exposes the `/companies` endpoint which returns a list of
-companies (with or without prices). It also serves a React/Typescript frontend.
-
-The backend service doesn't have much logic. So I went with simple
-architecture, ([YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)). Instead, choosing to spend more time
-on the front-end. Also I plan to port the backend to Node/TypeScript.
-
-For the frontend, I used [material-ui](https://material-ui.com/) as and [nivo](https://nivo.rocks/).
+A single DTO, used for communicating between the backend and the front-end. I'm sure there is more I could
+have moved here, especially if I had any created domain model classes.
 
 ### Testing
 
-Currently, there are no tests as I've not yet progressed that far with my TypeScript learning.
+At the moment, very minimal, but I plan to add more.
 
 ### Things I guessed/changed/left-out/do-if-I-had-more-time
 
 I would not be as unilateral in a real-life situation but instead more collaborative with the product managers and
-designers. But lacking easy access to either, here is a list of things I think I have and/or maybe strayed from the
+designers. However, lacking easy access to either, here is a list of things I think I have and/or maybe strayed from the
 specs.
 
 #### Overall snowflake score
