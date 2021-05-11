@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon index.ts",
-    "build": "tsc --project ./"
+    "build": "tsc --project ./",
+    "test:unit": "jest"
   },
   "dependencies": {
     "@databases/sqlite": "^3.0.0",

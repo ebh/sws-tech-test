@@ -1,9 +1,9 @@
 export interface CompanyDto {
     name: string
     symbol: string
-    exchangeSymbol: string,
-    price?: number
-    volatility?: number,
+    exchangeSymbol: string
+    price: number | null
+    volatility: number | null
     dividendScore: number
     futureScore: number
     healthScore: number
