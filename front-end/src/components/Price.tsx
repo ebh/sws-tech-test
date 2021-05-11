@@ -2,14 +2,14 @@ import React from "react";
 import NumberFormat from 'react-number-format';
 
 interface PriceProps {
-    value: number
+    value: number | null
 }
 
 // Made this a separate component because it seems like something that should be consistent across the broader app
 const Price: React.FunctionComponent<PriceProps> = (props) => {
     return (
         <NumberFormat
-            value={props.value}
+            value={props.value === null ? "--" : props.value}
             displayType="text"
             thousandSeparator={true}
             fixedDecimalScale={true}
