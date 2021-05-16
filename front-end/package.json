@@ -29,6 +29,8 @@
     "rimraf": "^2.6.2"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^5.0.0",
+    "@stryker-mutator/jest-runner": "^5.0.0",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "ajv": "^6.9.1",
@@ -45,8 +47,9 @@
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env CI=true react-scripts test --env=jsdom",
-    "test2": "react-scripts test",
+    "test-ci": "cross-env CI=true react-scripts test --env=jsdom",
+    "test": "react-scripts test",
+    "stryker": "npx stryker run",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/"
   },

@@ -1,24 +1,42 @@
-import {shallow} from "enzyme";
-import React from 'react';
 import Price from "components/Price";
-import NumberFormat from 'react-number-format';
+import {shallow, ShallowWrapper} from "enzyme";
+import React from "react";
+import NumberFormat from "react-number-format";
 
-describe('Price', () => {
-    it('shows a NumberFormat', async () => {
-        const component = shallow(<Price value={null} />)
+describe("Price", () => {
+    let component: ShallowWrapper;
 
+    beforeEach(() => {
+        component = shallow(<Price value={null}/>);
+    });
+
+    it("shows a NumberFormat", async () => {
         expect(component.find(NumberFormat).length).toEqual(1);
-    })
+    });
 
-    it('shows -- when value is null', async () => {
-        const component = shallow(<Price value={null} />)
+    it("uses commas to make large numbers easy to read", async () => {
+        expect(component.find(NumberFormat).prop("thousandSeparator")).toEqual(true);
+    });
 
-        expect(component.find(NumberFormat).prop('value')).toEqual('--')
-    })
+    it("always shows 2 decimal places", async () => {
+        expect(component.find(NumberFormat).prop("fixedDecimalScale")).toEqual(true);
+    });
 
-    it('rounds to 2 decimal paces', async () => {
-        const component = shallow(<Price value={12.345} />)
+    it("rounds to 2 decimal paces", async () => {
+        expect(component.find(NumberFormat).prop("decimalScale")).toEqual(2);
+    });
 
-        expect(component.find(NumberFormat).prop('decimalScale')).toEqual(2)
-    })
-})
+    it("shows -- when value is null", async () => {
+        expect(component.find(NumberFormat).prop("value")).toEqual("--");
+    });
+
+    it("shows number when value is NOT null", async () => {
+        const value = 12.345;
+        component = shallow(<Price value={value}/>);
+        expect(component.find(NumberFormat).prop("value")).toEqual(value);
+    });
+
+    it("rounds to 2 decimal paces", async () => {
+        expect(component.find(NumberFormat).prop("decimalScale")).toEqual(2);
+    });
+});
