@@ -13,12 +13,12 @@ describe('Price', () => {
     it('displays -- when value is null', async () => {
         const component = shallow(<Price value={null} />)
 
-        test.todo('add assert --')
+        expect(component.find(NumberFormat).prop('value')).toEqual('--')
     })
 
     it('rounds to 2 decimal paces', async () => {
         const component = shallow(<Price value={12.345} />)
 
-        test.todo('add assert 12.35')
+        expect(component.find(NumberFormat).prop('decimalScale')).toEqual(2)
     })
 })
