@@ -4,13 +4,13 @@ import Price from "components/Price";
 import NumberFormat from 'react-number-format';
 
 describe('Price', () => {
-    it('show a NumberFormat', async () => {
+    it('shows a NumberFormat', async () => {
         const component = shallow(<Price value={null} />)
 
         expect(component.find(NumberFormat).length).toEqual(1);
     })
 
-    it('displays -- when value is null', async () => {
+    it('shows -- when value is null', async () => {
         const component = shallow(<Price value={null} />)
 
         expect(component.find(NumberFormat).prop('value')).toEqual('--')
